@@ -22,6 +22,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Generate Gradle Wrapper (Gradle 9.0)
+        run: |
+          gradle wrapper --gradle-version 9.0
+
+
       # 3. Cache Gradle files
       - name: Cache Gradle packages
         uses: actions/cache@v3
