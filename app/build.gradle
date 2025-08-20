@@ -3,37 +3,49 @@ plugins {
 }
 
 android {
-    namespace "com.example.colorscodes"
+    namespace "com.example.colourcodes"
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.colorscodes"
+        applicationId "com.example.colourcodes"
         minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
-        // Use legacy packaging for vector drawables on very old builds if needed
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        debug {
-            // default debug config; produces app-debug.apk
-            debuggable true
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    // Java 8+ desugaring (safe defaults)
+    buildFeatures {
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // AndroidX Core Libraries
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+
+    // Material Components
+    implementation 'com.google.android.material:material:1.12.0'
+
+    // Unit Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
     }
 
     // If using Kotlin in future, keep toolchains aligned (no Kotlin here now)
