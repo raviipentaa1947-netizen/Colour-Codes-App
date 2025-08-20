@@ -1,27 +1,42 @@
-// app/build.gradle (Module-level)
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
     namespace "com.example.colorscodes"
-    compileSdkVersion 34
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.colorscodes"
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdk 21
+        targetSdk 34
         versionCode 1
         versionName "1.0"
+
+        // Use legacy packaging for vector drawables on very old builds if needed
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
+        debug {
+            // default debug config; produces app-debug.apk
+            debuggable true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            debuggable true
-        }
     }
+
+    // Java 8+ desugaring (safe defaults)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // If using Kotlin in future, keep toolchains aligned (no Kotlin here now)
 }
 
 dependencies {
