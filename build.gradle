@@ -1,17 +1,8 @@
-// Root build.gradle (Project-level)
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.2'
-    }
+// Root build.gradle
+plugins {
+    id 'com.android.application' version '8.7.0' apply false
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
