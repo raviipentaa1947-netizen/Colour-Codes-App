@@ -1,14 +1,14 @@
-package com.example.colorcodes;
+package com.example.colorscodes;
 
 public class ColorModel {
     private String name;
-    private String hexCode;
+    private String code;
 
-    public ColorModel(String name, String hexCode) {
+    public ColorModel(String name, String code) {
         this.name = name;
-        this.hexCode = hexCode;
+        this.code = code;
     }
 
     public String getName() { return name; }
-    public String getHexCode() { return hexCode; }
+    public String getCode() { return code; }
 }
